@@ -7,8 +7,49 @@
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4 class="border">
+        <ion-title>ΓΥΜΝΑΣΙΑ</ion-title>
+        <ion-label>Ονομα Γυμνασίου</ion-label>
+        <ion-select type="text" [(ngModel)]="gimnasioName">
+          <ion-option *ngFor="let nameOf of gimnasia">{{nameOf.name}}</ion-option>
+        </ion-select>
+        <ion-item>
+          <ion-label floating>Ποσότητα Χαρτιού</ion-label>
+          <ion-input [(ngModel)]="xartiGimnasio"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Ποσότητα Πλαστικού</ion-label>
+          <ion-input [(ngModel)]="plastikoGimnasio"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Ημερομηνία</ion-label>
+          <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MMM YYYY" [(ngModel)]="dateGimnasia"></ion-datetime>
+        </ion-item>
+        <button ion-button block color="primary" (click)="consoleMe()">CLICK ME</button>
+      </ion-col>
+      <ion-col col-4 class="border">
+        <ion-title>ΛΥΚΕΙΑ</ion-title>
+        <ion-label>Ονομα Λυκείου</ion-label>
+        <ion-select type="text" [(ngModel)]="likeioName">
+          <ion-option *ngFor="let nameOf of likeia">{{nameOf.name}}</ion-option>
+        </ion-select>
+        <ion-item>
+          <ion-label floating>Ποσότητα Χαρτιού</ion-label>
+          <ion-input [(ngModel)]="xartiLikeio"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Ποσότητα Πλαστικού</ion-label>
+          <ion-input [(ngModel)]="plastikoLikeio"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Ημερομηνία</ion-label>
+          <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MMM YYYY" [(ngModel)]="dateLikeia"></ion-datetime>
+        </ion-item>
+        <button ion-button block color="primary" (click)="consoleMe2()">CLICK ME</button>
+      </ion-col>
+      <button ion-button (click)="testResults()">TEST ME!!!</button>
+    </ion-row>
+  </ion-grid>
 </ion-content>
