@@ -14,7 +14,10 @@ import { TalktodbProvider } from "../../providers/talktodb/talktodb";
 })
 export class DisplayPage {
   ref: AngularFireList<any> = this.db.list("transactions");
-  data1$: Observable<Transaction[]>;
+  protoG: any;
+  defteroG: any;
+  protoGX: Array<any> = [];
+  protoGP: Array<any> = [];
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -23,15 +26,27 @@ export class DisplayPage {
   ) {}
 
   ionViewDidLoad() {
-    this.data1$ = this.talktodb
-      .queryItem("1ο Γυμνάσιο Χίου")
-      .snapshotChanges()
-      .map(changes => {
-        return changes.map(c => ({
-          key: c.payload.key,
-          ...c.payload.val()
-        }));
-      });
-    console.log(this.data1$);
+    // this.data1$ = this.talktodb
+    //   .queryItem("1ο Γυμνάσιο Χίου")
+    //   .snapshotChanges()
+    //   .map(changes => {
+    //     return changes.map(c => ({
+    //       key: c.payload.key,
+    //       ...c.payload.val()
+    //     }));
+    //   });
+    this.ref = this.db.list("transactions", ref => ref.orderByChild("onoma").equalTo("1ο Γυμνάσιο Χίου"));
+    this.ref.valueChanges().subscribe(result => {
+      this.protoG = result;
+      for (let x in [0, 1]) {
+        this.protoGX.push(this.protoG[x].posotita_xartiou);
+        this.protoGP.push(this.protoG[x].posotita_plastikou);
+      }
+    });
+    this.ref = this.db.list("transactions", ref => ref.orderByChild("onoma").equalTo("2ο Γυμνάσιο Χίου"));
+    this.ref.valueChanges().subscribe(result => {
+      this.defteroG = result;
+      console.log(this.defteroG);
+    });
   }
 }
