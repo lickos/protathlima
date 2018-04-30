@@ -1,0 +1,20 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Λεπτομέριες για το {{item.name}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let item of items">
+      <h2>{{item.imerominia | dateFormat}}</h2>
+      <small class="greenColor">Ποσότητα Χαρτιού: {{item.posotita_xartiou}}</small>
+      <br/>
+      <small class="blueColor">Ποσότητα Πλστικού: {{item.posotita_plastikou}}</small>
+      <p class="redColor">Συνολική Ποσότητα: {{item.posotita_plastikou*1 + item.posotita_xartiou*1}}</p>
+    </ion-item>
+  </ion-list>
+</ion-content>

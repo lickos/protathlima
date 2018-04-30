@@ -32,8 +32,13 @@ $colors: (
   secondary: #32db64,
   danger: #f53d3d,
   light: #f4f4f4,
-  dark: #222
+  dark: #222,
+  redColor: #ff0000
 );
+
+// Item detail push for android and wp
+$item-md-detail-push-show: true;
+$item-wp-detail-push-show: true;
 
 // App iOS Variables
 // --------------------------------------------------

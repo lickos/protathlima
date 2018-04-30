@@ -1,0 +1,23 @@
+<ion-header>
+  <img src="../../assets/imgs/header.png" />
+</ion-header>
+
+
+<ion-content padding>
+
+  <button ion-button clear color="primary" (click)="openGimnasia()">Γυμνάσια που Συμμετέχουν</button>
+  <ion-list *ngIf="showGimnasia">
+    <ion-item *ngFor="let gimn of gimnasia" detail-push navPush="DetailPage" [navParams]="{item: gimn}">
+      <h2>ΟΝΟΜΑ ΣΧΟΛΕΙΟΥ: {{gimn.name}}</h2>
+      <p color="grey">ΔΥΝΑΜΙΚΟΤΗΤΑ: {{gimn.dinamiko}}</p>
+    </ion-item>
+  </ion-list>
+  <br/>
+  <button ion-button clear color="primary" (click)="openLikeia()">Λύκεια που Συμμετέχουν</button>
+  <ion-list *ngIf="showLikeia">
+    <ion-item *ngFor="let likeia of likeia">
+      <h2>ΟΝΟΜΑ ΣΧΟΛΕΙΟΥ: {{likeia.name}}</h2>
+      <p color="grey">ΔΥΝΑΜΙΚΟΤΗΤΑ: {{likeia.dinamiko}}</p>
+    </ion-item>
+  </ion-list>
+</ion-content>

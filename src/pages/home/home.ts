@@ -60,9 +60,6 @@ export class HomePage {
   }
 
   consoleMe() {
-    console.log(this.gimnasioName);
-    console.log(this.xartiGimnasio);
-    console.log(this.plastikoGimnasio);
     this.transaction = {
       category: "GYMNASIA",
       onoma: this.gimnasioName,
@@ -70,7 +67,6 @@ export class HomePage {
       posotita_plastikou: this.plastikoGimnasio,
       imerominia: this.dateGimnasia
     };
-    console.log(this.transaction);
     this.ref.push(this.transaction).then(() => {
       let toast = this.toastCtrl.create({
         message: "New Transaction added",
@@ -81,9 +77,6 @@ export class HomePage {
   }
 
   consoleMe2() {
-    console.log(this.likeioName);
-    console.log(this.xartiLikeio);
-    console.log(this.plastikoLikeio);
     this.transaction = {
       category: "LIKEIA",
       onoma: this.likeioName,
@@ -91,7 +84,6 @@ export class HomePage {
       posotita_plastikou: this.plastikoLikeio,
       imerominia: this.dateLikeia
     };
-    console.log(this.transaction);
     this.ref.push(this.transaction).then(() => {
       let toast = this.toastCtrl.create({
         message: "New Transaction added",
@@ -100,8 +92,10 @@ export class HomePage {
       toast.present();
     });
   }
-
   testResults() {
     this.navCtrl.push("DisplayPage");
+  }
+  goToWelcome() {
+    this.navCtrl.push("WelcomePage");
   }
 }
